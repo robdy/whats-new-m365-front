@@ -27,7 +27,7 @@ export default function Home({ data }: HomeData) {
       key={`box-${entry.Cmdlet}-${entry.Category}-${entry.Event}-${
         entry.Param && <p>{entry.Param}</p>
       }`}
-      className={`p-4 bg-${entry.Event === 'Add' ? "green" : "red"}-100`}
+      className={`p-4 bg-${entry.Event === `Add` ? `green` : `red`}-100`}
     >
       <div
         key={`${entry.Cmdlet}-${entry.Category}-${entry.Event}-${
