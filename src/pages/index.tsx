@@ -24,16 +24,28 @@ export async function getStaticProps() {
 export default function Home({ data }: HomeData) {
   const tab = data.map((entry: Entry) => (
     <div
-      key={`${entry.Cmdlet}-${entry.Category}-${entry.Event}-${
+      key={`box-${entry.Cmdlet}-${entry.Category}-${entry.Event}-${
         entry.Param && <p>{entry.Param}</p>
       }`}
+      className={`p-4 bg-${entry.Event === 'Add' ? "green" : "red"}-100`}
     >
-      <h2>{entry.Cmdlet}</h2>
-      <p>{entry.Category}</p>
-      <p>{entry.Event}</p>
-      {entry.Param && <p>{entry.Param}</p>}
-      <p>{entry.Timestamp}</p>
+      <div
+        key={`${entry.Cmdlet}-${entry.Category}-${entry.Event}-${
+          entry.Param && <p>{entry.Param}</p>
+        }`}
+        className=""
+      >
+        <h2 className="">{entry.Cmdlet}</h2>
+        <p>{entry.Category}</p>
+        <p>{entry.Event}</p>
+        {entry.Param && <p>{entry.Param}</p>}
+        <p>{entry.Timestamp}</p>
+      </div>
     </div>
   ));
-  return tab;
+  return (
+    <div className="grid grid-cols-1 p-8 gap-8 md:grid-cols-2 lg:grid-cols-3">
+      {tab}
+    </div>
+  );
 }

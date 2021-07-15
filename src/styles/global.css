@@ -1,3 +1,9 @@
+/* #region Tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* #endregion Tailwind */
+
 html,
 body {
   padding: 0;
